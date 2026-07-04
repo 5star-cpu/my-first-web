@@ -10,7 +10,7 @@
            ========================================= */
         :root {
             --bg-color: #F7F5F1;       /* 主色：象牙白 */
-            --card-bg: #FFFFFF;        /* 卡片色：純白 (用來與象牙白產生高雅層次) */
+            --card-bg: #FFFFFF;        /* 卡片色：純白 */
             --text-primary: #2F2F2F;   /* 文字：深灰 */
             --text-secondary: #7A7A7A; /* 次要文字：柔和的中灰 */
             --accent-gold: #C9A96A;    /* 輔色：香檳金 */
@@ -25,7 +25,7 @@
             font-family: 'PingFang TC', 'Microsoft JhengHei', 'Playfair Display', serif, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-primary);
-            line-height: 1.7;
+            line-height: 1.8;
             overflow-x: hidden;
             letter-spacing: 0.04em;
         }
@@ -63,15 +63,13 @@
             transition: color 0.3s ease; 
         }
         
-        .nav-links a:hover { 
-            color: var(--accent-gold); 
-        }
+        .nav-links a:hover { color: var(--accent-gold); }
 
         /* =========================================
            3. 通用區塊排版
            ========================================= */
         section {
-            padding: 100px 8%;
+            padding: 120px 8%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -83,27 +81,35 @@
             text-transform: uppercase;
             color: var(--accent-gold);
             letter-spacing: 0.3em;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             font-weight: 600;
         }
 
         .section-title {
             font-size: 2.2rem;
             font-weight: 600;
-            margin-bottom: 48px;
+            margin-bottom: 16px;
             letter-spacing: 0.05em;
             color: var(--text-primary);
         }
 
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-gold);
+            font-style: italic;
+            margin-bottom: 60px;
+            font-weight: 400;
+        }
+
         /* =========================================
-           4. 主視覺區塊 (配合象牙白的柔和視差底圖)
+           4. 主視覺區塊
            ========================================= */
         .hero-section {
             min-height: 85vh;
             justify-content: center;
             background-image: 
                 linear-gradient(rgba(247, 245, 241, 0.85), rgba(247, 245, 241, 0.65)),
-                url('https://github.com/5star-cpu/my-first-web/blob/main/images/custom-background.png?raw=true'); 
+                url('https://images.unsplash.com/photo-1596701062351-8c2c14d1fdf2?q=80&w=1920&auto=format&fit=crop'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -147,7 +153,7 @@
         }
 
         /* =========================================
-           5. 關於與服務 (純白背景，突顯象牙白卡片)
+           5. 關於與服務 (2x2 頂級矩陣排版)
            ========================================= */
         .about-section {
             background-color: var(--card-bg);
@@ -157,39 +163,85 @@
         .about-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 1100px;
+            gap: 40px;
+            max-width: 1200px;
             text-align: left;
         }
 
         .about-card {
             background: var(--bg-color); 
-            padding: 48px 40px;
+            padding: 50px 40px;
             border: 1px solid var(--border-color);
             border-radius: 2px;
             transition: all 0.4s ease;
         }
 
         .about-card:hover {
-            box-shadow: 0 10px 30px rgba(47, 47, 47, 0.05);
+            box-shadow: 0 15px 35px rgba(47, 47, 47, 0.04);
             border-color: var(--accent-gold);
         }
 
         .about-card h3 { 
-            font-size: 1.2rem; 
-            margin-bottom: 16px; 
+            font-size: 1.3rem; 
+            margin-bottom: 20px; 
             font-weight: 600; 
             color: var(--text-primary); 
+            border-left: 3px solid var(--accent-gold);
+            padding-left: 14px;
         }
         
         .about-card p { 
             color: var(--text-secondary); 
             font-size: 0.95rem; 
-            line-height: 1.8; 
+            text-align: justify;
+        }
+
+        /* 內嵌清單樣式優化 */
+        .inner-list {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .inner-list li {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .inner-list li::before {
+            content: "•";
+            color: var(--accent-gold);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .inner-list li strong {
+            color: var(--text-primary);
+        }
+
+        /* 合作流程步驟樣式 */
+        .scheme-box {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px dashed var(--border-color);
+        }
+        .scheme-box strong {
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+        .scheme-box p {
+            font-size: 0.9rem;
+            color: var(--accent-gold);
+            font-weight: 500;
         }
 
         /* =========================================
-           6. 產品特色區塊
+           6. 核心系統優勢 (原 Features)
            ========================================= */
         .features-grid {
             display: grid;
@@ -219,16 +271,8 @@
             color: var(--accent-gold); 
         }
         
-        .feature-item h3 { 
-            font-size: 1.15rem; 
-            margin-bottom: 12px; 
-            color: var(--text-primary);
-        }
-        
-        .feature-item p { 
-            color: var(--text-secondary); 
-            font-size: 0.95rem; 
-        }
+        .feature-item h3 { font-size: 1.15rem; margin-bottom: 12px; color: var(--text-primary); }
+        .feature-item p { color: var(--text-secondary); font-size: 0.95rem; }
 
         /* =========================================
            7. 圖片展示網格 (Gallery)
@@ -260,41 +304,25 @@
             object-fit: cover; 
             transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
         }
-        
-        .image-card:hover img { 
-            transform: scale(1.08); 
-        }
+        .image-card:hover img { transform: scale(1.08); }
 
         /* =========================================
-           8. 聯絡我們 (反轉深色背景：深灰為主)
+           8. 聯絡我們 (深灰背景)
            ========================================= */
         .contact-section { 
             background-color: var(--text-primary); 
             color: var(--bg-color); 
         }
         
-        .contact-section .section-title { 
-            color: var(--bg-color); 
-        }
-        
-        .contact-box { 
-            max-width: 600px; 
-            margin: 0 auto; 
-        }
-        
-        .contact-box p { 
-            color: #BDBDBD; 
-            margin-bottom: 40px; 
-        }
+        .contact-section .section-title { color: var(--bg-color); }
+        .contact-box { max-width: 600px; margin: 0 auto; }
+        .contact-box p { color: #BDBDBD; margin-bottom: 40px; }
         
         .contact-btn-gold { 
             background-color: var(--accent-gold); 
             color: #ffffff; 
         }
-        
-        .contact-btn-gold:hover { 
-            background-color: var(--accent-hover); 
-        }
+        .contact-btn-gold:hover { background-color: var(--accent-hover); }
 
         /* =========================================
            9. 頁尾
@@ -326,39 +354,67 @@
     <header>
         <div class="logo">三優特絲</div>
         <nav class="nav-links">
-            <a href="#about">關於我們</a>
-            <a href="#features">產品特色</a>
+            <a href="#about">平台佈局</a>
+            <a href="#features">核心優勢</a>
             <a href="#gallery">應用場景</a>
             <a href="#contact">聯絡我們</a>
         </nav>
     </header>
 
     <section class="hero-section">
-        <h1 class="system-badge">旅宿業採購供應鏈平台</h1>
-        <h2 class="main-title">解決飯店採購資金流的問題</h2>
+        <p class="system-badge">旅宿業採購供應鏈平台</p>
+        <h1 class="main-title">解決飯店採購資金流的問題</h1>
         <p class="subtitle">您出想法，其它全部交給我們。</p>
         <a href="#contact" class="cta-button">立即聯繫團隊</a>
     </section>
 
     <section id="about" class="about-section">
-        <p class="section-badge">About & Services</p>
+        <p class="section-badge">Platform Blueprint</p>
         <h2 class="section-title">重建飯店營運資金循環配比與供應鏈共享機制</h2>
+        <p class="section-subtitle">重塑旅宿採購新標準</p>
+        
         <div class="about-grid">
             <div class="about-card">
-                <h3>關於我們</h3>
-                <p>我們是專為獨立品牌與酒店通路打造的隱性支持團隊。在草創期，我們致力於打破傳統供應鏈的資金卡關痛點，為合作夥伴提供最流暢的營運支援。</p>
+                <h3>關於我們：十年深耕</h3>
+                <p>「我們懂飯店的痛，因為我們就在源頭。」<br><br>
+                過去十年間，我們深刻觀察著旅宿業採購生態的運作。我們發現，許多採購部門長期陷入繁瑣且重複的溝通中，市場上卻缺乏一套明確的品質標準，更少有供應商能真正做到全方位的整合服務。<br><br>
+                為此，我們匯聚了各領域的頂尖資源，成立了這個專為旅宿業而生的整合平台。我們的團隊由專業的飯店寢具製造商，以及國際知名品牌代理商所組成。擁有極深的市場敏銳度與服務經驗，我們不僅能精準滿足各級飯店的規格需求，更具備強大的生產量能——公版規格最快 3 天即可交貨。在國內各大知名旅宿，都能看見我們團隊傾力服務的軌跡。我們以各自的強項，為您提供最快速、最優化的供應鏈方案。</p>
             </div>
+            
             <div class="about-card">
-                <h3>服務項目</h3>
-                <p>全方位的自動化系統：涵蓋資金流優化、精準資源對接、以及強大的技術支持。從想法到落地，您不需要擔心底層執行。</p>
+                <h3>服務項目：源頭直供</h3>
+                <p>「省去中間人，讓每一分預算都真實回饋在旅客體驗上。」<br><br>
+                面對飯店業人才難尋、採購人員對產品知識參差不齊的現況，我們不僅提供產品，更為您建立「可複製、標準化」的採購準則。我們整合了業界的源頭渠道，直接與旅宿業者對接，徹底省去經銷商的層層利潤與漫長的溝通時間。</p>
+                
+                <ul class="inner-list">
+                    <li><strong>專業客房寢具：</strong>床單、被套、枕套、枕芯、被芯製造直營。</li>
+                    <li><strong>國際知名備品：</strong>森田藥粧、國際 ADA 飯店化粧品供應商組織總代理。</li>
+                    <li><strong>星級專業設備：</strong>客房設備、PAMA 廚房設備、vicando、美國 Carlisle 公共區域設備總代理。</li>
+                    <li><strong>客製化床墊：</strong>各級別、全規格專屬訂製化床墊製造。</li>
+                </ul>
             </div>
+            
             <div class="about-card">
-                <h3>核心願景</h3>
-                <p>透過技術與資源的深度整合，讓酒店通路的營運更透明、更高效。我們目標是成為市場中解決複雜資金與物資流動的第一選擇。</p>
+                <h3>核心願景：解放採購焦慮</h3>
+                <p>「讓採購回歸專業，讓營運不再為資金流妥協。」<br><br>
+                我們的長期願景，是讓飯店採購成為一件輕鬆且精準的工作。我們致力於建立行業內的產品需求準則，大幅減少採購單位長期摸索與跨部門溝通的內耗。<br><br>
+                更重要的是，我們深知飯店營運的財務挑戰。透過創新的商業合作模式，我們期盼能實質解決飯店每月面臨的預算分配與資金流問題，讓經營團隊能將心力專注於提升服務品質與品牌價值。</p>
             </div>
+            
             <div class="about-card">
-                <h3>合作模式</h3>
-                <p>我們提供客製化的私有對接方案。不論您的業務規模如何，我們的系統都能靈活調整，並保障所有資源渠道的高度隱密與獨立性。</p>
+                <h3>合作模式：彈性機制</h3>
+                <p>「從美學到財務，我們都是您最堅實的後盾。」<br><br>
+                我們不僅是供應商，更是您的空間美學顧問。在合作過程中，我們將針對貴飯店的設計風格、體驗訴求、創設理念、整體配色及成本控管，提供最專業的產品適配建議，協助完成完美契合飯店特色的訂製品。<br><br>
+                為因應不同營運規模的財務需求，我們提供兩種清晰的合作流程：</p>
+                
+                <div class="scheme-box">
+                    <strong>方案一：無息分期專案（打造靈活現金流）</strong>
+                    <p>初步諮詢 ➔ 規劃產品 ➔ 提案報價 ➔ 專案資料審核 ➔ 簽訂合約 ➔ 產品出庫送達 ➔ 飯店方輕鬆按月繳款</p>
+                </div>
+                <div class="scheme-box">
+                    <strong>方案二：傳統合作模式（標準化高效採購）</strong>
+                    <p>初步諮詢 ➔ 規劃產品 ➔ 提案報價 ➔ 簽訂合約 ➔ 產品出庫送達 ➔ 依約請款 ➔ 核定月結日撥款完成</p>
+                </div>
             </div>
         </div>
     </section>
